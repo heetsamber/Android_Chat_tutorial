@@ -19,8 +19,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun initUi(): Unit{
         binding.connectBtn.setOnClickListener{
-
+            var intent = Intent(this, ChatActivity::class.java)
+            intent.putExtra("username", binding.userName.text.toString())
+            intent.putExtra("room_number", binding.userName.text.toString())
+            startActivity(intent)
         }
-
     }
 }
