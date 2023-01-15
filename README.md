@@ -1,4 +1,9 @@
 # Android_Chat_tutorial
 
-## 사용언어
+
+
+## 사용
 - Kotlin
+- node Js
+- express
+- socketio
