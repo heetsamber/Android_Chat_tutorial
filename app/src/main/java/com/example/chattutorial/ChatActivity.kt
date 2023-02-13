@@ -14,8 +14,8 @@ class ChatActivity : AppCompatActivity() {
     private lateinit var binding : ActivityChatBinding
 
     private lateinit var mSocket : Socket
-    private var userName: String? = null
-    private var roomNumber: String? = null
+    private lateinit var userName: String
+    private lateinit var roomNumber: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,15 +28,15 @@ class ChatActivity : AppCompatActivity() {
 
     private fun init(): Unit{
         try{
-            mSocket = IO.socket("https://192.168.XXX.XXX:8000")
+            mSocket = IO.socket("http://10.0.2.2:8000")
             Log.d("Connected", "port : 8000")
         }catch (e: URISyntaxException){
             Log.d("error", e.toString())
         }
 
-        userName = intent?.getStringExtra("userName")
-        roomNumber = intent?.getStringExtra("roomNumber")
-
+        userName = intent.getStringExtra("user_name").toString()
+        roomNumber = intent.getStringExtra("room_number").toString()
+        
         mSocket.connect()
     }
 
